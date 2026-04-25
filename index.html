@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Restore path encoded by 404.html redirect
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var p = params.get('p');
+        if (p) {
+          var q = params.get('q');
+          params.delete('p');
+          params.delete('q');
+          var rest = params.toString();
+          window.history.replaceState(
+            null, null,
+            p + (q ? '?' + q : '') + (rest ? (q ? '&' : '?') + rest : '') + window.location.hash
+          );
+        }
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2563eb" />
+    <link rel="manifest" href="/spaproject/manifest.json" />
+    <title>CampusConnect</title>
+    <script type="module" crossorigin src="/spaproject/assets/index-Cn7ZAlSW.js"></script>
+    <link rel="stylesheet" crossorigin href="/spaproject/assets/index-DcfcBPwb.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
