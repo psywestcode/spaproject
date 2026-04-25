@@ -1,0 +1,25 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+  max-width: 680px;
+}
+
+.row {
+  display: grid;
+  gap: $space-4;
+  grid-template-columns: 1fr;
+
+  @include respond-to('md') {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: $space-3;
+  padding-top: $space-2;
+}

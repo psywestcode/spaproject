@@ -1,0 +1,68 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $navbar-height;
+  background: $color-surface;
+  border-bottom: 1px solid $color-border;
+  z-index: 100;
+  box-shadow: $shadow-sm;
+}
+
+.inner {
+  @include container;
+  @include flex-between;
+  height: 100%;
+}
+
+.brand {
+  font-size: $text-xl;
+  font-weight: 700;
+  color: $color-primary;
+  letter-spacing: -0.02em;
+}
+
+.nav {
+  display: none;
+  gap: $space-6;
+
+  @include respond-to('md') {
+    display: flex;
+  }
+}
+
+.link,
+.activeLink {
+  font-size: $text-sm;
+  font-weight: 500;
+  color: $color-text-muted;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-text;
+  }
+}
+
+.activeLink {
+  color: $color-primary;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.userName {
+  font-size: $text-sm;
+  color: $color-text-muted;
+  display: none;
+
+  @include respond-to('md') {
+    display: block;
+  }
+}

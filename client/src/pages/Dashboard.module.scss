@@ -1,0 +1,115 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.header {
+  @include flex-between;
+  margin-bottom: $space-6;
+  flex-wrap: wrap;
+  gap: $space-4;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-4;
+  margin-bottom: $space-6;
+
+  .card {
+    text-align: center;
+    padding: $space-4;
+  }
+}
+
+.statNum {
+  font-size: $text-3xl;
+  font-weight: 700;
+  color: $color-primary;
+}
+
+.statLabel {
+  font-size: $text-sm;
+  color: $color-text-muted;
+  margin-top: $space-1;
+}
+
+.toolbar {
+  @include flex-between;
+  gap: $space-4;
+  margin-bottom: $space-4;
+  flex-wrap: wrap;
+}
+
+.filterTabs {
+  display: flex;
+  gap: $space-1;
+}
+
+.tab {
+  padding: $space-2 $space-4;
+  border: 1px solid $color-border;
+  border-radius: $border-radius;
+  background: $color-surface;
+  font-size: $text-sm;
+  cursor: pointer;
+  transition: background-color $transition-fast, color $transition-fast;
+
+  &:hover {
+    background: $color-bg;
+  }
+}
+
+.tabActive {
+  background: $color-primary;
+  border-color: $color-primary;
+  color: #fff;
+}
+
+.searchInput {
+  padding: $space-2 $space-3;
+  border: 1px solid $color-border;
+  border-radius: $border-radius;
+  font-size: $text-sm;
+  min-width: 200px;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.row {
+  @include flex-between;
+  padding: $space-4;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-lg;
+  gap: $space-4;
+  flex-wrap: wrap;
+}
+
+.rowInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.rowTitle {
+  font-weight: 500;
+  @include truncate;
+}
+
+.rowMeta {
+  font-size: $text-sm;
+  color: $color-text-muted;
+  margin-top: 2px;
+}
+
+.rowActions {
+  display: flex;
+  gap: $space-2;
+}

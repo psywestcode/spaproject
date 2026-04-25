@@ -1,0 +1,18 @@
+{
+  "name": "campusconnect",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w campusconnect-server\" \"npm run dev -w campusconnect-client\"",
+    "build": "npm run build -w campusconnect-client",
+    "lint": "npm run lint -w campusconnect-client && npm run lint -w campusconnect-server"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

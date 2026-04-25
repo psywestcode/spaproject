@@ -1,0 +1,148 @@
+@use 'reset';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.main-content {
+  min-height: calc(100vh - $navbar-height);
+  padding-top: $navbar-height;
+}
+
+.container {
+  @include container;
+}
+
+// Utility classes
+.sr-only {
+  @include visually-hidden;
+}
+
+.text-muted {
+  color: $color-text-muted;
+}
+
+.text-danger {
+  color: $color-danger;
+  font-size: $text-sm;
+}
+
+// Button variants
+.btn {
+  @include btn-base;
+
+  &--primary {
+    background: $color-primary;
+    color: #fff;
+
+    &:hover:not(:disabled) {
+      background: $color-primary-dark;
+    }
+  }
+
+  &--secondary {
+    background: transparent;
+    color: $color-primary;
+    border: 1px solid $color-primary;
+
+    &:hover:not(:disabled) {
+      background: rgb(37 99 235 / 0.05);
+    }
+  }
+
+  &--danger {
+    background: $color-danger;
+    color: #fff;
+
+    &:hover:not(:disabled) {
+      background: #b91c1c;
+    }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: $color-text;
+
+    &:hover:not(:disabled) {
+      background: $color-border;
+    }
+  }
+
+  &--sm {
+    padding: $space-1 $space-3;
+    font-size: $text-xs;
+  }
+
+  &--lg {
+    padding: $space-3 $space-6;
+    font-size: $text-base;
+  }
+}
+
+// Badge
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px $space-2;
+  border-radius: 9999px;
+  font-size: $text-xs;
+  font-weight: 500;
+
+  &--published {
+    background: #dcfce7;
+    color: #15803d;
+  }
+
+  &--draft {
+    background: #fef9c3;
+    color: #854d0e;
+  }
+}
+
+// Form elements
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+
+  label {
+    font-size: $text-sm;
+    font-weight: 500;
+    color: $color-text;
+  }
+
+  input,
+  select,
+  textarea {
+    @include input-base;
+  }
+
+  textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+}
+
+// Card
+.card {
+  @include card;
+  padding: $space-6;
+}
+
+// Page layout helpers
+.page {
+  @include container;
+  padding-block: $space-8;
+}
+
+.page-header {
+  margin-bottom: $space-6;
+
+  h1 {
+    font-size: $text-3xl;
+    color: $color-text;
+  }
+
+  p {
+    color: $color-text-muted;
+    margin-top: $space-1;
+  }
+}
