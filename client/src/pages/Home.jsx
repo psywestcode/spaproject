@@ -20,7 +20,8 @@ export default function Home() {
   }, [])
 
   const filtered = posts.filter((p) => {
-    const matchesQuery = p.title.toLowerCase().includes(query.toLowerCase())
+    const q = query.toLowerCase()
+    const matchesQuery = !q || p.title.toLowerCase().includes(q) || p.category?.toLowerCase().includes(q)
     const matchesCategory = !activeCategory || p.category === activeCategory
     return matchesQuery && matchesCategory
   })
